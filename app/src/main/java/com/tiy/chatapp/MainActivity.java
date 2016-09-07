@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText text;
     Button sendButton;
     ArrayAdapter<String> items;
+    ChatClient myChatClient = new ChatClient();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String item = text.getText().toString();
         items.add(item);
         text.setText("");
-        ChatClient myChatClient = new ChatClient();
+        //ChatClient myChatClient = new ChatClient();
         myChatClient.runClient();
         items.add(myChatClient.serverResponse);
     }
