@@ -12,6 +12,7 @@ import java.util.Scanner;
 public class ChatClient {
     final String HOST_ADDRESS = "10.0.0.126";
     final int PORT_NUMBER = 8005;
+    String serverResponse;
 //
 //    public static void main(String[] args) {
 //        new ChatClient().runClient();
@@ -32,7 +33,8 @@ public class ChatClient {
             // we could replace this with a name we get from the user
             outToServer.println("name=" + "client-baseline");
             // make sure we capture the response coming back from the server
-            String serverResponse = inFromServer.readLine();
+            //String serverResponse = inFromServer.readLine();
+            serverResponse = inFromServer.readLine();
             System.out.println("Server says: " + serverResponse);
 
             // now get into a loop to:

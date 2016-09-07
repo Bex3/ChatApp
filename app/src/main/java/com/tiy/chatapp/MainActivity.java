@@ -1,5 +1,6 @@
 package com.tiy.chatapp;
 
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -32,6 +33,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         sendButton.setOnClickListener(this);
         list.setOnItemLongClickListener(this);
 
+
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
     }
 
     @Override
@@ -41,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         text.setText("");
         ChatClient myChatClient = new ChatClient();
         myChatClient.runClient();
+        items.add(myChatClient.serverResponse);
     }
 
     @Override
